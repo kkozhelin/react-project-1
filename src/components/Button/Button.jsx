@@ -1,8 +1,8 @@
 import './Button.css';
 
-function Button({ children }) {
+function Button({ children, onClick }) {
     return (
-        <button className="button">
+        <button onClick={ onClick } className="button">
             { children }
         </button>
     )

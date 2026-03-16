@@ -5,11 +5,14 @@ import Title from './components/Title/Title.jsx';
 import Description from "./components/Description/Description.jsx";
 
 function App() {
+    const saveChange = () => {
+        console.log("saveChange");
+    }
 
   return (
     <>
         <Title>Поиск</Title>
-        <Button>Искать</Button>
+        <Button onClick={ saveChange }>Искать</Button>
         <Description>Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.</Description>
     </>
   )
