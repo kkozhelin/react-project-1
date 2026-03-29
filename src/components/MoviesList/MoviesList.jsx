@@ -1,4 +1,4 @@
-import './MoviesList.css';
+import styles from './MoviesList.module.css';
 
 import { MOVIES } from "../../constants/movies.js";
 
@@ -10,7 +10,7 @@ function MoviesList() {
     });
 
     return (
-        <div className='MoviesList'>
+        <div className={styles.MoviesList}>
             {moviesList}
         </div>
     )

@@ -1,8 +1,8 @@
-import './Description.css'
+import styles from './Description.module.css'
 
 function Description({ children }) {
     return (
-        <p className='paragraph'>{children}</p>
+        <p className={styles.paragraph}>{children}</p>
     )
 }
 

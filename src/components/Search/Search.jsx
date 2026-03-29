@@ -1,4 +1,4 @@
-import './Search.css';
+import styles from './Search.module.css';
 
 import { useState} from "react";
 
@@ -18,7 +18,7 @@ function Search() {
         setValue(e.target.value);
     }
     return (
-        <form onSubmit={saveChange} className="Search">
+        <form onSubmit={saveChange} className={styles.Search}>
             <Input
                 placeholder='Введите название'
                 value={value}
