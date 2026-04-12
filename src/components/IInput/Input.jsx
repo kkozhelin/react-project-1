@@ -1,9 +1,10 @@
 import styles from './Input.module.css';
+import { forwardRef } from "react";
 
 import cn from 'classnames';
 
 const PLACEHOLDER = 'Введите название';
-function Input({ showIcon, placeholder, onChange, value, name }) {
+const Input = forwardRef(function Input({ showIcon, onChange, value, ...props }, ref) {
     return (
         <div className={styles.inputWrapper}>
             <img className={cn([
@@ -12,15 +13,15 @@ function Input({ showIcon, placeholder, onChange, value, name }) {
             ])} src='/search.svg' alt='search' />
             <input
                 value={value}
+                ref={ref}
                 className={styles.input}
-                placeholder={placeholder}
                 onChange={onChange}
                 type="text"
-                name={name}
+                {...props}
             />
         </div>
 
     )
-}
+})
 
 export default Input;
