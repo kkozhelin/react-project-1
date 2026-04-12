@@ -1,6 +1,15 @@
 import styles from './Header.module.css';
 
+import { useLocalstorage } from "../../hooks/use-localstorage.hook.js";
+import {useEffect} from "react";
+
 function Header() {
+    const [storage, setStorage] = useLocalstorage('users');
+
+    const logOut = () => {
+        setStorage({});
+    }
+
     return (
         <header className={styles.Header}>
             <img src='/logo.svg' alt='logo'/>
@@ -10,10 +19,23 @@ function Header() {
                     <span>Мои фильмы</span>
                     <span className={styles.number}>6</span>
                 </a>
-                <a>
-                    <span>Войти</span>
-                    <img src='./exit.svg'/>
-                </a>
+                {storage?.isLogined && (
+                    <>
+                        <a>
+                            {storage.name}
+                        </a>
+                        <button onClick={logOut}>
+                            <span>выйти</span>
+                        </button>
+                    </>
+                )}
+
+                {!storage?.isLogined && (
+                    <button>
+                        <span>Войти</span>
+                        <img src='./exit.svg'/>
+                    </button>
+                )}
             </nav>
         </header>
     )
