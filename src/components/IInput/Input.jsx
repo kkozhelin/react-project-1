@@ -1,21 +1,24 @@
-import './Input.css';
+import styles from './Input.module.css';
+
+import cn from 'classnames';
 
 const PLACEHOLDER = 'Введите название';
-function Input({ showIcon, placeholder, onChange, value, name }) {
+export function Input({ showIcon, onChange, value, ...props }, ref) {
     return (
-        <div className='inputWrapper'>
-            <img className={showIcon ? 'icon _show' : 'icon'} src='/search.svg' alt='search' />
-            <input
-                value={value}
-                className='input'
-                placeholder={placeholder}
-                onChange={onChange}
-                type="text"
-                name={name}
-            />
-        </div>
-
-    )
+    <div className={styles.inputWrapper}>
+        <img className={cn([
+            styles.icon,
+            {[styles['_show']]: showIcon}
+        ])} src='/search.svg' alt='search' />
+        <input
+            value={value}
+            ref={ref}
+            className={styles.input}
+            onChange={onChange}
+            type="text"
+            {...props}
+        />
+    </div>)
 }
 
 export default Input;

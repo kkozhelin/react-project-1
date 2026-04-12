@@ -1,17 +1,17 @@
-import './CardMovie.css';
+import styles from './CardMovie.module.css';
 
 function CardMovie({ movie }) {
     return (
-        <div className='cardWrapper'>
-            <div className='imgContainer' style={{ backgroundImage: `url(${movie.img})` }}>
-                <div className='likeWrapper'>
+        <div className={styles.cardWrapper}>
+            <div className={styles.imgContainer} style={{ backgroundImage: `url(${movie.img})` }}>
+                <div className={styles.likeWrapper}>
                     <img src='./star.svg' alt='like' />
                     <span> { movie.like}</span>
                 </div>
             </div>
-            <div className='contentWrapper'>
-                <p className='name'>{movie.name}</p>
-                <button className='likeBtn'>
+            <div className={styles.contentWrapper}>
+                <p className={styles.name}>{movie.name}</p>
+                <button className={styles.likeBtn}>
                     <img src='./like.svg' alt='like' />
                     В избранное
                 </button>
