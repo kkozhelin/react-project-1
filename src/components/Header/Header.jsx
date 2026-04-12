@@ -7,7 +7,10 @@ function Header() {
     const [storage, setStorage] = useLocalstorage('users');
 
     const logOut = () => {
-        setStorage({});
+        setStorage({
+            ...storage,
+            isLogined: false,
+        });
     }
 
     return (
